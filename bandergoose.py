@@ -37,6 +37,7 @@ bonuses = []
 animate = []
 
 playing = True
+kaboom = None
 
 def create_enemy():
     enemy = pygame.transform.scale(pygame.image.load('./images/enemy.png').convert_alpha(), (80, 30))
@@ -137,7 +138,7 @@ while playing:
         if animation[4] < 1:
             animate.pop(animate.index(animation))
 
-    if playing == False:
+    if playing == False and kaboom:
         main_display.blit(boom, boom_rect)
 
     main_display.blit(FONT.render(str(score), True, TEXT_COLOR), (WIDTH - 50, 20))
